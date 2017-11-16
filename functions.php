@@ -42,12 +42,12 @@ function custom_settings_page() { ?>
 
 // Twitter
 function setting_twitter() { ?>
-        <input type="text" name="twitter" id="twitter" value="<?php echo get_option('twitter'); ?>" />
-        <?php }
+    <input type="text" name="twitter" id="twitter" value="<?php echo get_option('twitter'); ?>" />
+    <?php }
 
 function setting_facebook() { ?>
-            <input type="text" name="facebook" id="facebook" value="<?php echo get_option('facebook'); ?>" />
-            <?php }
+    <input type="text" name="facebook" id="facebook" value="<?php echo get_option('facebook'); ?>" />
+    <?php }
 
 function custom_settings_page_setup() {
   add_settings_section('section', 'All Settings', null, 'theme-options');
@@ -74,13 +74,13 @@ if ( '' == $text ) {
     $text = apply_filters('the_content', $text);
     $text = str_replace(']]>', ']]&gt;', $text);
      
-    $allowed_tags = '<p>,<a>,<em>,<strong>,<img>,<i>'; /*** MODIFY THIS. Add the allowed HTML tags separated by a comma.***/
+    $allowed_tags = '<p>,<a>,<em>,<strong>,<img>';  /*** MODIFY THIS. Add the allowed HTML tags separated by a comma.***/
     $text = strip_tags($text, $allowed_tags);
      
     $excerpt_word_count = 55; /*** MODIFY THIS. change the excerpt word count to any integer you like.***/
     $excerpt_length = apply_filters('excerpt_length', $excerpt_word_count); 
      
-    $excerpt_end = '[...]'; /*** MODIFY THIS. change the excerpt endind to something else.***/
+    $excerpt_end = ' <a href="'. get_permalink($post->ID) . '">' . '[...]' . '</a>';  /*** MODIFY THIS. change the excerpt endind to something else.***/
     $excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end);
      
     $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
@@ -94,5 +94,5 @@ if ( '' == $text ) {
 }
 return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
 }
-add_filter('get_the_excerpt', 'custom_wp_trim_excerpt', 5);
-?>
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'custom_wp_trim_excerpt');
