@@ -1,7 +1,7 @@
 </div>
 <!-- /.container -->
 <footer class="blog-footer">
-    <p><a href="https://wordpress.org/">WordPress</a> theme built for <a href="http://briancollins.xyz">briancollins.xyz</a> by <a href="http://briancollins.xyz">briancollins.xyz</a>.</p>
+    <p><a href="https://wordpress.org/">WordPress</a> theme built for <a href="http://briancollins.xyz">briancollins.xyz</a> by <a href="http://newmachines.xyz">newmachines.xyz</a>.</p>
     <p>&mdash;U. p: <a href="#">up</a>, she said.</p>
     <ul class="list-inline" style="margin-top:2rem">
         <li><a href="<?php echo get_option('twitter'); ?>"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
@@ -17,6 +17,6 @@
 
 <?php wp_footer(); ?>
 
-    </body>
+</body>
 
-    </html>
+</html>
